@@ -1,4 +1,4 @@
 # RxJS
-`RxJS Примеры. Работа с API GitHub`
-
-`https://www.youtube.com/watch?v=i_bwptbaSRA&list=PLqKQF2ojwm3ksNegIZIz_AB0x6a9zqofx&index=1`
+##`RxJS - Полный курс за 1 час`
+####`Минин`
+`https://www.youtube.com/watch?v=gCwSVQO_PtY&list=PLqKQF2ojwm3ksNegIZIz_AB0x6a9zqofx&index=2`
