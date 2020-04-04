@@ -1,10 +1,6 @@
 import {range, timer, interval} from 'rxjs'
 import { scan, map } from 'rxjs/operators'
 
-const sub =  interval(500).subscribe(
-	value => console.log(value)
-)
+timer(2500).subscribe(v => console.log(v))
 
-setTimeout(()=>{
-	 sub.unsubscribe()
-}, 4000)
+range( 42, 10).subscribe(value => console.log(value))
