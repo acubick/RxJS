@@ -1,8 +1,8 @@
- import {Subject} from 'rxjs'
+ import {Subject, BehaviorSubject} from 'rxjs'
 
 document.addEventListener('click', () => {
 	
-	  const stream$ = new Subject()
+	  const stream$ = new BehaviorSubject('First')
 
 	stream$.subscribe(value =>  console.log('Value:', value))
 
