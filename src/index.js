@@ -1,68 +1,11 @@
-import { fromEvent } from 'rxjs'
-import {
-	tap, map, pairwise, switchMap, takeUntil, withLatestFrom, startWith
-} from 'rxjs/operators'
+document.getElementById('increment').addEventListener('click', () => {
 
-const canvas = document.querySelector( 'canvas' )
-const range  = document.getElementById( 'range' )
-const color  = document.getElementById( 'color' )
+})
 
-const ctx   = canvas.getContext( '2d' )
-const rect  = canvas.getBoundingClientRect()
-const scale = window.devicePixelRatio
+document.getElementById('decrement').addEventListener('click', () => {
 
-canvas.width  = rect.width * scale
-canvas.height = rect.height * scale
-ctx.scale( scale, scale )
+})
 
+document.getElementById('add').addEventListener('click', () => {
 
-const mouseMove$ = fromEvent( canvas, 'mousemove' )
-const mouseDown$ = fromEvent( canvas, 'mousedown' )
-const mouseUp$   = fromEvent( canvas, 'mouseup' )
-const mouseOut$  = fromEvent( canvas, 'mouseout' )
-
-
-function createInputStream(node){
-	    return fromEvent( node, 'input' )
-					    .pipe(
-						    map( e => e.target.value ),
-						    startWith(node.value))
-}
-
-const lineWidth$ = createInputStream(range)
-const strokeStyle$ = createInputStream(color)
-
-
-const stream$ = mouseDown$.pipe(
-	withLatestFrom( lineWidth$, strokeStyle$,(_, lineWidth, strokeStyle) => {
-		return {lineWidth, strokeStyle}
-	} ),
-	switchMap( options => {
-		return mouseMove$.pipe(
-//		tap(v => console.log(v)),
-			map( e => ({
-				x: event.offsetX,
-				y: event.offsetY,
-				options
-			}) ),
-			pairwise(),
-			takeUntil( mouseUp$ ),
-			takeUntil( mouseOut$ )
-		)
-	} )
-)
-
-stream$.subscribe( ([ from, to ]) => {
-//	console.log(pos)
-//	ctx.fillRect(pos.x, pos.y, 2, 2)
-
-	const {lineWidth, strokeStyle} = from.options
-
-	ctx.lineWidth = lineWidth
-	ctx.strokeStyle = strokeStyle
-
-	ctx.beginPath()
-	ctx.moveTo( from.x, from.y )
-	ctx.lineTo( to.x, to.y )
-	ctx.stroke()
-} )
+})
