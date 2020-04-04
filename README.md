@@ -1,4 +1,4 @@
 # RxJS
-##`RxJS - Полный курс за 1 час`
+##`RxJS Примеры. Создание своего Redux`
 ####`Минин`
-`https://www.youtube.com/watch?v=gCwSVQO_PtY&list=PLqKQF2ojwm3ksNegIZIz_AB0x6a9zqofx&index=2`
+`https://www.youtube.com/watch?v=QFpWHWD3FhQ&list=PLqKQF2ojwm3ksNegIZIz_AB0x6a9zqofx&index=4`
