@@ -1,5 +1,5 @@
-import {of, from, Observable} from 'rxjs'
-import { scan } from 'rxjs/operators'
+import {of, from, Observable, fromEvent} from 'rxjs'
+import { scan, map } from 'rxjs/operators'
 
 //const stream$ = of(1, 2, 3, 4)
 //const stream$ = of('Hello', 'World')
@@ -53,3 +53,18 @@ stream$.subscribe({
 })*/
 
 
+  fromEvent(document.querySelector('canvas'), 'mousemove')
+	  .pipe(
+	  	map(e => ({
+			  x: e.offsetX,
+			  y: e.offsetY,
+			  ctx: e.target.getContext('2d')
+		  }))
+	  )
+//	  .subscribe(event => console.log(event))
+	  .subscribe(pos => pos.ctx.fillRect(pos.x, pos.y, 2, 2))
+const clear$ = fromEvent(document.getElementById('clear'), 'click')
+    clear$.subscribe(()=>{
+    	    const canvas = document.querySelector('canvas')
+	    canvas.getContext('2d').clearRect(0,0, canvas.width, canvas.height)
+    })
