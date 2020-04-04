@@ -1,4 +1,1 @@
-// import './problem'
-// import './creation'
-//import './subjects'
-import './operators'
+const canvas = document.querySelector('canvas')
